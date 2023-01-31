@@ -11,7 +11,7 @@ import SwiftUI
 struct getplus_testApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
