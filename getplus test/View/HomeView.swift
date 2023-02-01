@@ -54,11 +54,11 @@ struct HomeView: View {
                         .isDetailLink(false)
                         .hidden()
                         
-//                        NavigationLink(destination: VouchersView(), isActive: $openVouchers) {
-//                            EmptyView()
-//                        }
-//                        .isDetailLink(false)
-//                        .hidden()
+                        NavigationLink(destination: VouchersView(), isActive: $openVouchers) {
+                            EmptyView()
+                        }
+                        .isDetailLink(false)
+                        .hidden()
                     }
                     .padding(10)
                     
