@@ -1,21 +1,20 @@
 //
-//  HomeViewModel.swift
+//  MerchantsViewModel.swift
 //  getplus test
 //
-//  Created by Gerald Stephanus on 31/01/23.
+//  Created by Gerald Stephanus on 01/02/23.
 //
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class MerchantsViewModel: ObservableObject {
     
-    private var homeUrl = "https://private-840560-gpimobiletakehometest.apiary-mock.com/home"
-    @Published var menus: [HomeData.Data.Layout.Menu] = []
-    @Published var promos: [HomeData.Data.Layout.Promo.PromoData] = []
+    private var merchantUrl = "https://private-840560-gpimobiletakehometest.apiary-mock.com/merchants?page="
+    @Published var merchants: [MerchantsData.Data.List] = []
     
     
-    func fetchHome() async {
-        guard let url = URL(string: homeUrl) else {
+    func fetchMerchants(page: String) async {
+        guard let url = URL(string: merchantUrl + page) else {
             print("Missing URL")
             return
         }
@@ -31,9 +30,9 @@ class HomeViewModel: ObservableObject {
                 return
             }
             
-            if let decodedData = try? JSONDecoder().decode(HomeData.self, from: data) {
+            if let decodedData = try? JSONDecoder().decode(MerchantsData.self, from: data) {
                 DispatchQueue.main.async {
-                    self.setMenuPromo(data: decodedData)
+                    self.merchants = decodedData.data.list
                 }
             } else {
                 print("Error parsing data")
@@ -42,10 +41,5 @@ class HomeViewModel: ObservableObject {
         } catch {
             print("error getting data from API")
         }
-    }
-    
-    func setMenuPromo(data: HomeData) {
-        menus = data.data.layout.menu
-        promos = data.data.layout.promo.data
     }
 }

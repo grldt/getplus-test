@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JsonData: Codable {
+struct HomeData: Codable {
     var data: Data
     
     struct Data: Codable {
@@ -17,10 +17,7 @@ struct JsonData: Codable {
             var menu: [Menu]
             
             struct Menu: Codable, Identifiable {
-                var id: String
-                var logoUrl: String
-                var label: String
-                var deeplink: String
+                var id, logoUrl, label, deeplink: String
                 var enable, visible: Bool
             }
             
@@ -31,10 +28,8 @@ struct JsonData: Codable {
                 var data: [PromoData]
                 
                 struct PromoData: Codable, Identifiable {
-                    var id: Int
-                    var imageUrl: String
-                    var order: Int
-                    var url: String
+                    var id, order: Int
+                    var imageUrl, url: String
                 }
             }
         }
