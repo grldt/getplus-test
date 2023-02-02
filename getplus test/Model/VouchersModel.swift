@@ -19,9 +19,7 @@ struct VouchersData: Codable {
             var ValidUntil, VoucherCode: String
             var VoucherValue: Int
             var AuthenticationRequired: Bool
-//            var VoucherURL: String
             var URLOnly, IsPendingTransfer: Bool
-//            var ReferralCode, ReferralExpiry: String
             var ScanToUse: Bool
             var Partner: Partner
             var id: String { RSN }

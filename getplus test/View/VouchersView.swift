@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VouchersView: View {
     @StateObject var vouchersVM = VouchersViewModel()
+    @State private var useAlert = false
     
     var body: some View {
         ScrollView {
@@ -26,31 +27,41 @@ struct VouchersView: View {
                     .frame(width: 72, height: 72)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text(voucher.VoucherCode)
-                            .font(.title2)
+                            .font(.footnote)
                             .lineLimit(1)
                         
                         Text("Valid until: ")
-                            .font(.title2)
+                            .font(.footnote)
                             .lineLimit(1)
                     }
                     
                     Spacer()
                     
                     Button("Use", action: {
-                        print("Feature in development")
+                        useAlert.toggle()
                     })
+                    .alert("Feature under development", isPresented: $useAlert) {
+                        Button("OK", role: .cancel) { }
+                    }
                 }
-                .padding(.leading, 80)
-                .padding(.trailing, 80)
+                .padding(.leading, 40)
+                .padding(.trailing, 40)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear(perform: {
             Task {
+                vouchersVM.isLoading = true
                 await vouchersVM.fetchVouchers()
             }
         })
+        .navigationBarTitle(Text("Vouchers"), displayMode: .inline)
+        .overlay(vouchersVM.isLoading ? ProgressView("Loading")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.opacity(0.3))
+            .anyView() : EmptyView().anyView())
     }
 }
 

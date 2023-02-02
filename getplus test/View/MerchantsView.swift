@@ -28,13 +28,13 @@ struct MerchantsView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     
                     Text(merchant.Name)
-                        .font(.title2)
+                        .font(.subheadline)
                         .lineLimit(1)
                     
                     Spacer()
                 }
-                .padding(.leading, 80)
-                .padding(.trailing, 80)
+                .padding(.leading, 40)
+                .padding(.trailing, 40)
             }
             
             HStack {
@@ -42,6 +42,7 @@ struct MerchantsView: View {
                     // set page to 1
                     page = "1"
                     Task {
+                        merchantsVM.isLoading = true
                         await merchantsVM.fetchMerchants(page: page)
                     }
                 }
@@ -50,17 +51,25 @@ struct MerchantsView: View {
                 Button("2") {
                     page = "2"
                     Task {
+                        merchantsVM.isLoading = true
                         await merchantsVM.fetchMerchants(page: page)
                     }
                 }
                 .disabled(page == "2")
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear(perform: {
             Task {
+                merchantsVM.isLoading = true
                 await merchantsVM.fetchMerchants(page: page)
             }
         })
+        .navigationBarTitle(Text("Merchants"), displayMode: .inline)
+        .overlay(merchantsVM.isLoading ? ProgressView("Loading")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.opacity(0.3))
+            .anyView() : EmptyView().anyView())
     }
 }
 

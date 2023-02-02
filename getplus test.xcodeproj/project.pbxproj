@@ -19,6 +19,8 @@
 		B8969E26298AB0810023D681 /* VouchersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8969E25298AB0810023D681 /* VouchersModel.swift */; };
 		B8969E28298AB3F40023D681 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8969E27298AB3F40023D681 /* VouchersView.swift */; };
 		B8969E2A298AB4590023D681 /* VouchersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8969E29298AB4590023D681 /* VouchersViewModel.swift */; };
+		B8969E2D298B592A0023D681 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8969E2C298B592A0023D681 /* WebView.swift */; };
+		B8969E2F298B5BCE0023D681 /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8969E2E298B5BCE0023D681 /* PromoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		B8969E25298AB0810023D681 /* VouchersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersModel.swift; sourceTree = "<group>"; };
 		B8969E27298AB3F40023D681 /* VouchersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersView.swift; sourceTree = "<group>"; };
 		B8969E29298AB4590023D681 /* VouchersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersViewModel.swift; sourceTree = "<group>"; };
+		B8969E2C298B592A0023D681 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		B8969E2E298B5BCE0023D681 /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		B8241F242987CBF100250862 /* getplus test */ = {
 			isa = PBXGroup;
 			children = (
+				B8969E2B298B59150023D681 /* Utils */,
 				B8241F332987D33200250862 /* Model */,
 				B8241F342987D33C00250862 /* View */,
 				B8241F352987D34800250862 /* ViewModel */,
@@ -101,6 +106,7 @@
 				B8241F362987D3FB00250862 /* HomeView.swift */,
 				B8969E1F298A7D9F0023D681 /* MerchantsView.swift */,
 				B8969E27298AB3F40023D681 /* VouchersView.swift */,
+				B8969E2E298B5BCE0023D681 /* PromoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +119,14 @@
 				B8969E29298AB4590023D681 /* VouchersViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B8969E2B298B59150023D681 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B8969E2C298B592A0023D681 /* WebView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,10 +205,12 @@
 				B8969E28298AB3F40023D681 /* VouchersView.swift in Sources */,
 				B8241F562988EA9100250862 /* HomeViewModel.swift in Sources */,
 				B8969E2A298AB4590023D681 /* VouchersViewModel.swift in Sources */,
+				B8969E2F298B5BCE0023D681 /* PromoView.swift in Sources */,
 				B8969E24298A82520023D681 /* MerchantsModel.swift in Sources */,
 				B8241F262987CBF100250862 /* getplus_testApp.swift in Sources */,
 				B8969E26298AB0810023D681 /* VouchersModel.swift in Sources */,
 				B8969E20298A7D9F0023D681 /* MerchantsView.swift in Sources */,
+				B8969E2D298B592A0023D681 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
